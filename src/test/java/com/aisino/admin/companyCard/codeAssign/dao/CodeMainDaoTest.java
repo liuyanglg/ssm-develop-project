@@ -20,7 +20,7 @@ public class CodeMainDaoTest extends BaseTest{
     @Test
     public void insert() throws Exception {
         Set<String> codesSet = new HashSet<String>();
-        int size=20;
+        int size=100000;
         for(int i=0;i<size;i++){
             String code = generateCode();
             codesSet.add(code);
@@ -33,20 +33,20 @@ public class CodeMainDaoTest extends BaseTest{
             String code = it.next();
             KPCodeMainDO kpCodeMainDO = new KPCodeMainDO();
             kpCodeMainDO.setCompanyName("服务商"+code);
-//            kpCodeMainDO.setCompanyTaxid("201708041123" + code);
-//            kpCodeMainDO.setAmount(10);
-//            kpCodeMainDO.setEmployeeId("employee" + code);
-//            kpCodeMainDO.setEmployeeName("员工" + code);
-//            kpCodeMainDO.setEmployeeMobile("15988881234");
-//            kpCodeMainDO.setCreatePerson(person[i % 5]);
-//            kpCodeMainDO.setCreateTime(new Date());
-//            kpCodeMainDO.setModifyPerson(person[i % 5]);
-//            kpCodeMainDO.setModifyTime(new Date());
+            kpCodeMainDO.setCompanyTaxid("201708041123" + code);
+            kpCodeMainDO.setAmount(10);
+            kpCodeMainDO.setEmployeeId("employee" + code);
+            kpCodeMainDO.setEmployeeName("员工" + code);
+            kpCodeMainDO.setEmployeeMobile("15988881234");
+            kpCodeMainDO.setCreatePerson(person[i % 5]);
+            kpCodeMainDO.setCreateTime(new Date());
+            kpCodeMainDO.setModifyPerson(person[i % 5]);
+            kpCodeMainDO.setModifyTime(new Date());
             list.add(kpCodeMainDO);
             i++;
-            codeMainDao.insert(kpCodeMainDO);
+//            codeMainDao.insert(kpCodeMainDO);
         }
-//        codeMainDao.insertKPCodeMains(list);
+        codeMainDao.insertBatch(list);
     }
 
 

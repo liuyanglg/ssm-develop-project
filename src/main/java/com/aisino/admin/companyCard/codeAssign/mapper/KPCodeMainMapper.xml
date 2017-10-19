@@ -7,18 +7,20 @@
     </select>
 
     <insert id="insert" parameterType="KPCodeMainDO">
-        INSERT INTO jskp_kpcode_assign_main(assign_company_name,assign_company_taxid,assign_employee_id,assign_employee_name,assign_employee_mobile,assign_amount,create_person,create_time,modify_person,modify_time)
+        INSERT INTO
+        jskp_kpcode_assign_main(assign_company_name,assign_company_taxid,assign_employee_id,assign_employee_name,assign_employee_mobile,assign_amount,create_person,create_time,modify_person,modify_time)
         value(#{companyName},#{companyTaxid},#{employeeId},#{employeeName},#{employeeMobile},#{amount},#{createPerson},#{createTime},#{modifyPerson},#{modifyTime})
         <selectKey keyProperty="id" resultType="int">
             SELECT MAX(id) as id FROM jskp_kpcode_assign_main
         </selectKey>
     </insert>
 
-    <insert id="insertKPCodeMains" useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
-        INSERT INTO jskp_kpcode_assign_main(assign_company_name,assign_company_taxid,assign_employee_id,assign_employee_name,assign_employee_mobile,assign_amount,create_person,create_time,modify_person,modify_time)
-        values
-        <foreach collection="list" item="item" index="index" separator="," >
-            (#{companyName},#{companyTaxid},#{employeeId},#{employeeName},#{employeeMobile},#{amount},#{createPerson},#{createTime},#{modifyPerson},#{modifyTime})
+    <insert id="insertBatch" useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
+        INSERT INTO
+        jskp_kpcode_assign_main(assign_company_name,assign_company_taxid,assign_employee_id,assign_employee_name,assign_employee_mobile,assign_amount,create_person,create_time,modify_person,modify_time)
+        VALUES
+        <foreach collection="list" item="KPCodeMain" index="index" separator=",">
+            (#{KPCodeMain.companyName},#{KPCodeMain.companyTaxid},#{KPCodeMain.employeeId},#{KPCodeMain.employeeName},#{KPCodeMain.employeeMobile},#{KPCodeMain.amount},#{KPCodeMain.createPerson},#{KPCodeMain.createTime},#{KPCodeMain.modifyPerson},#{KPCodeMain.modifyTime})
         </foreach>
     </insert>
 
