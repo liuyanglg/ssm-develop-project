@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.aisino.admin.global.paging.Page" alias="Page"/>
+        <typeAlias type="com.aisino.admin.companyCard.codeAssign.bean.KPCodeMainDO" alias="KPCodeMainDO"/>
+        <typeAlias type="com.aisino.admin.companyCard.codeAssign.bean.KPCodeDetailDO" alias="KPCodeDetailDO"/>
+        <typeAlias type="com.aisino.admin.companyCard.codeAssign.bean.KPAssignCodeVO" alias="KPAssignCodeVO"/>
+    </typeAliases>
+    <mappers>
+        <mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeAssignMapper.xml"/>
+        <mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeDetailMapper.xml"/>
+        <mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeMainMapper.xml"/>
+    </mappers>
+</configuration>

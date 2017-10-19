@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--加载属性配置文件-->
+    <context:property-placeholder location="classpath*:/properties/jdbc-*.properties"/>
+
+    <!--扫瞄注解包-->
+    <context:component-scan base-package="com.aisino"/>
+
+    <!-- 配置数据源 -->
+    <bean id="dataServer" class="com.alibaba.druid.pool.DruidDataSource" init-method="close">
+        <!-- 基本属性 url、user、password -->
+        <property name="driverClassName">
+            <value>${dataserver.jdbc.driver}</value>
+        </property>
+        <property name="url">
+            <value>${dataserver.jdbc.url}</value>
+        </property>
+        <property name="username">
+            <value>${dataserver.jdbc.username}</value>
+        </property>
+        <property name="password">
+            <value>${dataserver.jdbc.password}</value>
+        </property>
+        <!-- 连接池最大使用连接数 -->
+        <property name="maxActive">
+            <value>${dataserver.maxActive}</value>
+        </property>
+        <!-- 初始化连接大小 -->
+        <property name="initialSize">
+            <value>${dataserver.initialSize}</value>
+        </property>
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait">
+            <value>${dataserver.maxWait}</value>
+        </property>
+        <!-- 连接池最大空闲 -->
+        <property name="maxIdle">
+            <value>${dataserver.maxIdle}</value>
+        </property>
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle">
+            <value>${dataserver.minIdle}</value>
+        </property>
+        <!-- 自动清除无用连接 -->
+        <property name="removeAbandoned">
+            <value>true</value>
+        </property>
+        <!-- 清除无用连接的等待时间 -->
+        <property name="removeAbandonedTimeout">
+            <value>180</value>
+        </property>
+        <!-- 连接属性 -->
+        <property name="connectionProperties">
+            <value>clientEncoding=UTF-8</value>
+        </property>
+    </bean>
+
+    <!--创建SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataServer"/>
+        <!-- 自动扫描 mapper.xml文件(读取的是编译出来的classes目录中xml文件) -->
+        <property name="mapperLocations" value="classpath:com/**/mapper/*.xml"></property>
+        <!--最新mybatis的配置文件位置-->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+    </bean>
+
+    <bean id="dataSource" class="com.aisino.admin.global.configer.DynamicDataSource">
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry value-ref="dataServer" key="dataServer"></entry>
+            </map>
+        </property>
+        <!-- 默认使用dataSourceSig的数据源 -->
+        <property name="defaultTargetDataSource" ref="dataServer"></property>
+    </bean>
+
+
+    <!-- 自动注册mybatis mapper bean -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.aisino.**.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+
+    <bean id="transactionManagerCenter" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataServer"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManagerCenter"/>
+
+    <import resource="classpath*:com/aisino/admin/companyCard/codeAssign/spring*.xml"/>
+    <!--<import resource="classpath*:spring/spring-*.xml"/>-->
+</beans>
