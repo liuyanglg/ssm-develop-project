@@ -1,10 +1,10 @@
-package com.aisino.admin.companyCard.codeAssign.dao;
+package com.aisino.admin.companyCard.codeAssign.service;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPCodeMainDO;
 
 import java.util.List;
 
-public interface CodeMainDao {
+public interface CodeMainService {
     KPCodeMainDO get(Integer id);
 
     void insert(KPCodeMainDO kpCodeMainDO);

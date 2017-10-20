@@ -3,72 +3,72 @@ package com.aisino.admin.companyCard.codeAssign.bean;
 import java.util.Date;
 
 public class KPCodeMainDO {
-    private int id;
-    private String companyName;
-    private String companyTaxid;
-    private String employeeId;
-    private String employeeName;
-    private String employeeMobile;
-    private int amount;
+    private Integer id;
+    private String assignCompanyName;
+    private String assignCompanyTaxid;
+    private String assignEmployeeId;
+    private String assignEmployeeName;
+    private String assignEmployeeMobile;
+    private Integer assignAmount;
     private String createPerson;
     private Date createTime;
     private String modifyPerson;
     private Date modifyTime;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getAssignCompanyName() {
+        return assignCompanyName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setAssignCompanyName(String assignCompanyName) {
+        this.assignCompanyName = assignCompanyName;
     }
 
-    public String getCompanyTaxid() {
-        return companyTaxid;
+    public String getAssignCompanyTaxid() {
+        return assignCompanyTaxid;
     }
 
-    public void setCompanyTaxid(String companyTaxid) {
-        this.companyTaxid = companyTaxid;
+    public void setAssignCompanyTaxid(String assignCompanyTaxid) {
+        this.assignCompanyTaxid = assignCompanyTaxid;
     }
 
-    public String getEmployeeId() {
-        return employeeId;
+    public String getAssignEmployeeId() {
+        return assignEmployeeId;
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    public void setAssignEmployeeId(String assignEmployeeId) {
+        this.assignEmployeeId = assignEmployeeId;
     }
 
-    public String getEmployeeName() {
-        return employeeName;
+    public String getAssignEmployeeName() {
+        return assignEmployeeName;
     }
 
-    public void setEmployeeName(String employeeName) {
-        this.employeeName = employeeName;
+    public void setAssignEmployeeName(String assignEmployeeName) {
+        this.assignEmployeeName = assignEmployeeName;
     }
 
-    public String getEmployeeMobile() {
-        return employeeMobile;
+    public String getAssignEmployeeMobile() {
+        return assignEmployeeMobile;
     }
 
-    public void setEmployeeMobile(String employeeMobile) {
-        this.employeeMobile = employeeMobile;
+    public void setAssignEmployeeMobile(String assignEmployeeMobile) {
+        this.assignEmployeeMobile = assignEmployeeMobile;
     }
 
-    public int getAmount() {
-        return amount;
+    public Integer getAssignAmount() {
+        return assignAmount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setAssignAmount(Integer assignAmount) {
+        this.assignAmount = assignAmount;
     }
 
     public String getCreatePerson() {
@@ -101,5 +101,22 @@ public class KPCodeMainDO {
 
     public void setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
+    }
+
+    @Override
+    public String toString() {
+        return "KPCodeMainDO{" +
+                "id=" + id +
+                ", assignCompanyName='" + assignCompanyName + '\'' +
+                ", assignCompanyTaxid='" + assignCompanyTaxid + '\'' +
+                ", assignEmployeeId='" + assignEmployeeId + '\'' +
+                ", assignEmployeeName='" + assignEmployeeName + '\'' +
+                ", assignEmployeeMobile='" + assignEmployeeMobile + '\'' +
+                ", assignAmount=" + assignAmount +
+                ", createPerson='" + createPerson + '\'' +
+                ", createTime=" + createTime +
+                ", modifyPerson='" + modifyPerson + '\'' +
+                ", modifyTime=" + modifyTime +
+                '}';
     }
 }

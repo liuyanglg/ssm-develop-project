@@ -3,16 +3,8 @@ package com.aisino.admin.companyCard.codeAssign.bean;
 import java.util.Date;
 
 public class KPAssignCodeVO {
-    private String companyName;
-    private String companyTaxid;
-    private String employeeId;
-    private String employeeMobile;
-    private int amount;
-    private String createPerson;
-    private Date createTime;
-    private String modifyPerson;
-    private Date modifyTime;
-
+    private Integer detailId;
+    private Integer mainId;
     private String preAssignCode;
     private String bindCompanyName;
     private String bindCompanyTaxid;
@@ -21,76 +13,31 @@ public class KPAssignCodeVO {
     private String originCode;
     private String status;
 
-    public String getCompanyName() {
-        return companyName;
+    private String assignCompanyName;
+    private String assignCompanyTaxid;
+    private String assignEmployeeId;
+    private String assignEmployeeName;
+    private String assignEmployeeMobile;
+    private Integer assignAmount;
+    private String createPerson;
+    private Date createTime;
+    private String modifyPerson;
+    private Date modifyTime;
+
+    public Integer getDetailId() {
+        return detailId;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setDetailId(Integer detailId) {
+        this.detailId = detailId;
     }
 
-    public String getCompanyTaxid() {
-        return companyTaxid;
+    public Integer getMainId() {
+        return mainId;
     }
 
-    public void setCompanyTaxid(String companyTaxid) {
-        this.companyTaxid = companyTaxid;
-    }
-
-    public String getEmployeeId() {
-        return employeeId;
-    }
-
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getEmployeeMobile() {
-        return employeeMobile;
-    }
-
-    public void setEmployeeMobile(String employeeMobile) {
-        this.employeeMobile = employeeMobile;
-    }
-
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public String getCreatePerson() {
-        return createPerson;
-    }
-
-    public void setCreatePerson(String createPerson) {
-        this.createPerson = createPerson;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getModifyPerson() {
-        return modifyPerson;
-    }
-
-    public void setModifyPerson(String modifyPerson) {
-        this.modifyPerson = modifyPerson;
-    }
-
-    public Date getModifyTime() {
-        return modifyTime;
-    }
-
-    public void setModifyTime(Date modifyTime) {
-        this.modifyTime = modifyTime;
+    public void setMainId(Integer mainId) {
+        this.mainId = mainId;
     }
 
     public String getPreAssignCode() {
@@ -142,6 +89,94 @@ public class KPAssignCodeVO {
     }
 
     public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getAssignCompanyName() {
+        return assignCompanyName;
+    }
+
+    public void setAssignCompanyName(String assignCompanyName) {
+        this.assignCompanyName = assignCompanyName;
+    }
+
+    public String getAssignCompanyTaxid() {
+        return assignCompanyTaxid;
+    }
+
+    public void setAssignCompanyTaxid(String assignCompanyTaxid) {
+        this.assignCompanyTaxid = assignCompanyTaxid;
+    }
+
+    public String getAssignEmployeeId() {
+        return assignEmployeeId;
+    }
+
+    public void setAssignEmployeeId(String assignEmployeeId) {
+        this.assignEmployeeId = assignEmployeeId;
+    }
+
+    public String getAssignEmployeeName() {
+        return assignEmployeeName;
+    }
+
+    public void setAssignEmployeeName(String assignEmployeeName) {
+        this.assignEmployeeName = assignEmployeeName;
+    }
+
+    public String getAssignEmployeeMobile() {
+        return assignEmployeeMobile;
+    }
+
+    public void setAssignEmployeeMobile(String assignEmployeeMobile) {
+        this.assignEmployeeMobile = assignEmployeeMobile;
+    }
+
+    public Integer getAssignAmount() {
+        return assignAmount;
+    }
+
+    public void setAssignAmount(Integer assignAmount) {
+        this.assignAmount = assignAmount;
+    }
+
+    public String getCreatePerson() {
+        return createPerson;
+    }
+
+    public void setCreatePerson(String createPerson) {
+        this.createPerson = createPerson;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getModifyPerson() {
+        return modifyPerson;
+    }
+
+    public void setModifyPerson(String modifyPerson) {
+        this.modifyPerson = modifyPerson;
+    }
+
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
+
+    public String getStatusStr() {
         String str = "新建 ";
         if (status != null) {
             if (status.equals("0")) {
@@ -155,7 +190,28 @@ public class KPAssignCodeVO {
         return str;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "KPAssignCodeVO{" +
+                "detailId=" + detailId +
+                ", mainId=" + mainId +
+                ", preAssignCode='" + preAssignCode + '\'' +
+                ", bindCompanyName='" + bindCompanyName + '\'' +
+                ", bindCompanyTaxid='" + bindCompanyTaxid + '\'' +
+                ", bindPerson='" + bindPerson + '\'' +
+                ", bindTime=" + bindTime +
+                ", originCode='" + originCode + '\'' +
+                ", status='" + status + '\'' +
+                ", assignCompanyName='" + assignCompanyName + '\'' +
+                ", assignCompanyTaxid='" + assignCompanyTaxid + '\'' +
+                ", assignEmployeeId='" + assignEmployeeId + '\'' +
+                ", assignEmployeeName='" + assignEmployeeName + '\'' +
+                ", assignEmployeeMobile='" + assignEmployeeMobile + '\'' +
+                ", assignAmount=" + assignAmount +
+                ", createPerson='" + createPerson + '\'' +
+                ", createTime=" + createTime +
+                ", modifyPerson='" + modifyPerson + '\'' +
+                ", modifyTime=" + modifyTime +
+                '}';
     }
 }

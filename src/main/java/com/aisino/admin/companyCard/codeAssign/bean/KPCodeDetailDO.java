@@ -3,8 +3,8 @@ package com.aisino.admin.companyCard.codeAssign.bean;
 import java.util.Date;
 
 public class KPCodeDetailDO {
-    private int detailId;
-    private int mainId;
+    private Integer detailId;
+    private Integer mainId;
     private String preAssignCode;
     private String bindCompanyName;
     private String bindCompanyTaxid;
@@ -13,19 +13,19 @@ public class KPCodeDetailDO {
     private String originCode;
     private String status;
 
-    public int getDetailId() {
+    public Integer getDetailId() {
         return detailId;
     }
 
-    public void setDetailId(int detailId) {
+    public void setDetailId(Integer detailId) {
         this.detailId = detailId;
     }
 
-    public int getMainId() {
+    public Integer getMainId() {
         return mainId;
     }
 
-    public void setMainId(int mainId) {
+    public void setMainId(Integer mainId) {
         this.mainId = mainId;
     }
 
@@ -83,5 +83,20 @@ public class KPCodeDetailDO {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "KPCodeDetailDO{" +
+                "detailId=" + detailId +
+                ", mainId=" + mainId +
+                ", preAssignCode='" + preAssignCode + '\'' +
+                ", bindCompanyName='" + bindCompanyName + '\'' +
+                ", bindCompanyTaxid='" + bindCompanyTaxid + '\'' +
+                ", bindPerson='" + bindPerson + '\'' +
+                ", bindTime=" + bindTime +
+                ", originCode='" + originCode + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

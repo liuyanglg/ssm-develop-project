@@ -2,37 +2,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aisino.admin.companyCard.codeAssign.dao.CodeMainDao">
-    <select id="get" resultType="KPCodeMainDO" parameterType="int">
+
+    <resultMap id="KPCodeMainDOResultMap" type="KPCodeMainDO">
+        <result column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="assign_company_name" property="assignCompanyName" jdbcType="VARCHAR"/>
+        <result column="assign_company_taxid" property="assignCompanyTaxid" jdbcType="VARCHAR"/>
+        <result column="assign_employee_id" property="assignEmployeeId" jdbcType="VARCHAR"/>
+        <result column="assign_employee_name" property="assignEmployeeName" jdbcType="VARCHAR"/>
+        <result column="assign_employee_mobile" property="assignEmployeeMobile" jdbcType="VARCHAR"/>
+        <result column="assign_amount" property="assignAmount" jdbcType="INTEGER"/>
+        <result column="create_person" property="createPerson" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime"/>
+        <result column="modify_person" property="modifyPerson" jdbcType="VARCHAR"/>
+        <result column="modify_time" property="modifyTime"/>
+    </resultMap>
+
+    <select id="get" resultMap="KPCodeMainDOResultMap" parameterType="int">
         SELECT * FROM jskp_kpcode_assign_main where id=${value}
     </select>
 
     <insert id="insert" parameterType="KPCodeMainDO">
         INSERT INTO
         jskp_kpcode_assign_main(assign_company_name,assign_company_taxid,assign_employee_id,assign_employee_name,assign_employee_mobile,assign_amount,create_person,create_time,modify_person,modify_time)
-        value(#{companyName},#{companyTaxid},#{employeeId},#{employeeName},#{employeeMobile},#{amount},#{createPerson},#{createTime},#{modifyPerson},#{modifyTime})
+        value(#{assignCompanyName},#{assignCompanyTaxid},#{assignEmployeeId},#{assignEmployeeName},#{assignEmployeeMobile},#{assignAmount},#{createPerson},#{createTime},#{modifyPerson},#{modifyTime})
         <selectKey keyProperty="id" resultType="int">
             SELECT MAX(id) as id FROM jskp_kpcode_assign_main
         </selectKey>
     </insert>
 
-    <insert id="insertBatch" useGeneratedKeys="true" parameterType="java.util.List" keyProperty="id">
+    <insert id="insertBatch" useGeneratedKeys="true" parameterType="java.util.List" keyProperty="detailId">
         INSERT INTO
         jskp_kpcode_assign_main(assign_company_name,assign_company_taxid,assign_employee_id,assign_employee_name,assign_employee_mobile,assign_amount,create_person,create_time,modify_person,modify_time)
         VALUES
         <foreach collection="list" item="KPCodeMain" index="index" separator=",">
-            (#{KPCodeMain.companyName},#{KPCodeMain.companyTaxid},#{KPCodeMain.employeeId},#{KPCodeMain.employeeName},#{KPCodeMain.employeeMobile},#{KPCodeMain.amount},#{KPCodeMain.createPerson},#{KPCodeMain.createTime},#{KPCodeMain.modifyPerson},#{KPCodeMain.modifyTime})
+            (#{KPCodeMain.assignCompanyName},#{KPCodeMain.assignCompanyTaxid},#{KPCodeMain.assignEmployeeId},#{KPCodeMain.assignEmployeeName},#{KPCodeMain.assignEmployeeMobile},#{KPCodeMain.assignAmount},#{KPCodeMain.createPerson},#{KPCodeMain.createTime},#{KPCodeMain.modifyPerson},#{KPCodeMain.modifyTime})
         </foreach>
     </insert>
 
     <update id="update" parameterType="KPCodeMainDO">
         UPDATE jskp_kpcode_assign_main
         <set>
-            <if test="companyName != null">assign_company_name=#{companyName},</if>
-            <if test="companyTaxid != null">assign_company_taxid=#{companyTaxid},</if>
-            <if test="employeeId != null">assign_employee_id=#{employeeId},</if>
-            <if test="employeeName != null">assign_employee_name=#{employeeName},</if>
-            <if test="employeeMobile != null">assign_employee_mobile=#{employeeMobile},</if>
-            <if test="amount != null">assign_amount=#{amount},</if>
+            <if test="assignCompanyName != null">assign_company_name=#{assignCompanyName},</if>
+            <if test="assignCompanyTaxid != null">assign_company_taxid=#{assignCompanyTaxid},</if>
+            <if test="assignEmployeeId != null">assign_employee_id=#{assignEmployeeId},</if>
+            <if test="assignEmployeeName != null">assign_employee_name=#{assignEmployeeName},</if>
+            <if test="assignEmployeeMobile != null">assign_employee_mobile=#{assignEmployeeMobile},</if>
+            <if test="assignAmount != null">assign_amount=#{assignAmount},</if>
             <if test="createPerson != null">create_person=#{createPerson},</if>
             <if test="createTime != null">create_time=#{createTime},</if>
             <if test="modifyPerson != null">modify_person=#{modifyPerson},</if>
