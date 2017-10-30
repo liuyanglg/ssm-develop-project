@@ -1,4 +1,4 @@
-package com.aisino.admin.companyCard.codeAssign.bean;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.bean;
 
 import java.util.Date;
 
@@ -6,6 +6,9 @@ public class KPCodeDetailDO {
     private Integer detailId;
     private Integer mainId;
     private String preAssignCode;
+    private String assignEmployeeId;
+    private String assignEmployeeName;
+    private String assignEmployeeMobile;
     private String bindCompanyName;
     private String bindCompanyTaxid;
     private String bindPerson;
@@ -35,6 +38,30 @@ public class KPCodeDetailDO {
 
     public void setPreAssignCode(String preAssignCode) {
         this.preAssignCode = preAssignCode;
+    }
+
+    public String getAssignEmployeeId() {
+        return assignEmployeeId;
+    }
+
+    public void setAssignEmployeeId(String assignEmployeeId) {
+        this.assignEmployeeId = assignEmployeeId;
+    }
+
+    public String getAssignEmployeeName() {
+        return assignEmployeeName;
+    }
+
+    public void setAssignEmployeeName(String assignEmployeeName) {
+        this.assignEmployeeName = assignEmployeeName;
+    }
+
+    public String getAssignEmployeeMobile() {
+        return assignEmployeeMobile;
+    }
+
+    public void setAssignEmployeeMobile(String assignEmployeeMobile) {
+        this.assignEmployeeMobile = assignEmployeeMobile;
     }
 
     public String getBindCompanyName() {
@@ -91,6 +118,9 @@ public class KPCodeDetailDO {
                 "detailId=" + detailId +
                 ", mainId=" + mainId +
                 ", preAssignCode='" + preAssignCode + '\'' +
+                ", assignEmployeeId='" + assignEmployeeId + '\'' +
+                ", assignEmployeeName='" + assignEmployeeName + '\'' +
+                ", assignEmployeeMobile='" + assignEmployeeMobile + '\'' +
                 ", bindCompanyName='" + bindCompanyName + '\'' +
                 ", bindCompanyTaxid='" + bindCompanyTaxid + '\'' +
                 ", bindPerson='" + bindPerson + '\'' +

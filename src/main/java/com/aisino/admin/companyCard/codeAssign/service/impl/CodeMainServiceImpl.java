@@ -1,9 +1,7 @@
-package com.aisino.admin.companyCard.codeAssign.service.impl;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.service.impl;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPCodeMainDO;
-import com.aisino.admin.companyCard.codeAssign.bean.KPCodeMainDO;
 import com.aisino.admin.companyCard.codeAssign.dao.CodeMainDao;
-import com.aisino.admin.companyCard.codeAssign.service.CodeMainService;
 import com.aisino.admin.companyCard.codeAssign.service.CodeMainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +12,7 @@ import java.util.List;
 public class CodeMainServiceImpl implements CodeMainService {
     @Autowired
     CodeMainDao codeMainDao;
+
     public KPCodeMainDO get(Integer id) {
         return codeMainDao.get(id);
     }
@@ -35,8 +34,13 @@ public class CodeMainServiceImpl implements CodeMainService {
     }
 
     public void insertBatch(List<KPCodeMainDO> kpCodeMainDOList) {
-        if(kpCodeMainDOList!=null&&kpCodeMainDOList.size()>0){
+        if (kpCodeMainDOList != null && kpCodeMainDOList.size() > 0) {
             codeMainDao.insertBatch(kpCodeMainDOList);
         }
     }
+
+    public KPCodeMainDO queryByTaxid(String taxid) {
+        return codeMainDao.queryByTaxid(taxid);
+    }
+
 }

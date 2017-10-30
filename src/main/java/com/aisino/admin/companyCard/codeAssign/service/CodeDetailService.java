@@ -1,4 +1,4 @@
-package com.aisino.admin.companyCard.codeAssign.service;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.service;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPCodeDetailDO;
 
@@ -15,4 +15,5 @@ public interface CodeDetailService {
     void delete(Integer id);
 
     void insertBatch(List<KPCodeDetailDO> kpCodeDetailDOList);
+
 }

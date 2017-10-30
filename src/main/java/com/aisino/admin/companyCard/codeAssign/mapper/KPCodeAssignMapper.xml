@@ -64,7 +64,7 @@
 
     <select id="count" parameterType="Page" resultType="_int">
         SELECT COUNT(*)
-        FROM jskp_kpcode_assign_main M LEFT JOIN jskp_kpcode_assign_detail D
+        FROM jskp_kpcode_assign_main M INNER JOIN jskp_kpcode_assign_detail D
         ON D.main_id=M.id
         <where>
             <if test="paramObj!=null">

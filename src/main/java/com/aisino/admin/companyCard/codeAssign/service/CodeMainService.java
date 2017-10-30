@@ -1,4 +1,4 @@
-package com.aisino.admin.companyCard.codeAssign.service;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.service;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPCodeMainDO;
 
@@ -14,4 +14,6 @@ public interface CodeMainService {
     void delete(Integer id);
 
     void insertBatch(List<KPCodeMainDO> kpCodeMainDOList);
+
+    KPCodeMainDO queryByTaxid(String taxid);
 }

@@ -1,4 +1,4 @@
-package com.aisino.admin.companyCard.codeAssign.service.impl;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.service.impl;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPCodeDetailDO;
 import com.aisino.admin.companyCard.codeAssign.dao.CodeDetailDao;

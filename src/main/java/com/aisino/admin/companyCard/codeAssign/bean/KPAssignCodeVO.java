@@ -1,4 +1,6 @@
-package com.aisino.admin.companyCard.codeAssign.bean;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.bean;
+
+import com.aisino.admin.global.utils.DateUtils;
 
 import java.util.Date;
 
@@ -176,6 +178,28 @@ public class KPAssignCodeVO {
         this.modifyTime = modifyTime;
     }
 
+    public String getCreateTimeStr(){
+        String str = null;
+        if (createTime!=null) {
+            str = DateUtils.format(createTime);
+        }
+        return str;
+    }
+    public String getBindTimeStr(){
+        String str = null;
+        if (bindTime!=null) {
+            str = DateUtils.format(bindTime);
+        }
+        return str;
+    }
+    public String getModifyTimeStr(){
+        String str = null;
+        if (modifyTime!=null) {
+            str = DateUtils.format(modifyTime);
+        }
+        return str;
+    }
+
     public String getStatusStr() {
         String str = "新建 ";
         if (status != null) {
@@ -186,6 +210,53 @@ public class KPAssignCodeVO {
             } else if (status.equals("2")) {
                 str = "已恢复 ";
             }
+        }
+        return str;
+    }
+
+    public String getAssignCompanyNameTaxid(){
+        String str = assignCompanyName;
+        if(assignCompanyTaxid!=null&&assignCompanyTaxid.trim().length()>0) {
+            str += "<br />(" + assignCompanyTaxid + ")";
+        }
+        return str;
+    }
+
+    public String getBindCompanyNameTaxid(){
+        String str = bindCompanyName;
+        if(bindCompanyTaxid!=null&&bindCompanyTaxid.trim().length()>0) {
+            str += "<br />(" + bindCompanyTaxid + ")";
+        }
+        return str;
+    }
+    public String getAssignEmployeeNameId(){
+        String str = assignEmployeeName;
+        if(assignEmployeeId!=null&&assignEmployeeId.trim().length()>0) {
+            str += "<br />(" + assignCompanyTaxid + ")";
+        }
+        return str;
+    }
+
+    public String getCreatePersonTime(){
+        String str = createPerson;
+        if(getCreateTimeStr()!=null) {
+            str += "<br />(" + getCreateTimeStr() + ")";
+        }
+        return str;
+    }
+    
+    public String getBindPersonTime(){
+        String str = bindPerson;
+        if(getBindTimeStr()!=null) {
+            str += "<br />(" + getBindTimeStr() + ")";
+        }
+        return str;
+    }
+
+    public String getModifyPersonTime(){
+        String str = modifyPerson;
+        if(getModifyTimeStr()!=null) {
+            str += "<br />(" + getModifyTimeStr() + ")";
         }
         return str;
     }
