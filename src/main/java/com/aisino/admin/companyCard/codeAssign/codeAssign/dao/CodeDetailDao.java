@@ -1,4 +1,4 @@
-package com.aisino.admin.companyCard.codeAssign.dao;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.dao;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPCodeDetailDO;
 
@@ -7,7 +7,7 @@ import java.util.List;
 public interface CodeDetailDao {
     KPCodeDetailDO get(Integer id);
 
-    int insert(KPCodeDetailDO kpCodeDetailDO);
+    void insert(KPCodeDetailDO kpCodeDetailDO);
 
 
     void update(KPCodeDetailDO kpCodeDetailDO);

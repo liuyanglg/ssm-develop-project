@@ -7,6 +7,9 @@
         <result column="detail_id" property="detailId" jdbcType="INTEGER"/>
         <result column="main_id" property="mainId" jdbcType="INTEGER"/>
         <result column="pre_assign_code" property="preAssignCode" jdbcType="VARCHAR"/>
+        <result column="assign_employee_id" property="assignEmployeeId" jdbcType="VARCHAR"/>
+        <result column="assign_employee_name" property="assignEmployeeName" jdbcType="VARCHAR"/>
+        <result column="assign_employee_mobile" property="assignEmployeeMobile" jdbcType="VARCHAR"/>
         <result column="bind_company_name" property="bindCompanyName" jdbcType="VARCHAR"/>
         <result column="bind_company_taxid" property="bindCompanyTaxid" jdbcType="VARCHAR"/>
         <result column="bind_person" property="bindPerson" jdbcType="VARCHAR"/>
@@ -21,19 +24,16 @@
 
     <insert id="insert" parameterType="KPCodeDetailDO" useGeneratedKeys="true" keyProperty="detailId">
         INSERT INTO
-        jskp_kpcode_assign_detail(main_id,pre_assign_code,bind_company_name,bind_company_taxid,bind_person,bind_time,origin_code,status)
-        value(#{mainId},#{preAssignCode},#{bindCompanyName},#{bindCompanyTaxid},#{bindPerson},#{bindTime},#{originCode},#{status})
-        <!--<selectKey keyProperty="id" resultType="int">-->
-            <!--SELECT MAX(detail_id) as detail_id FROM jskp_kpcode_assign_detail-->
-        <!--</selectKey>-->
+        jskp_kpcode_assign_detail(main_id,pre_assign_code,assign_employee_id,assign_employee_name,assign_employee_mobile,bind_company_name,bind_company_taxid,bind_person,bind_time,origin_code,status)
+        value(#{mainId},#{preAssignCode},#{assignEmployeeId},#{assignEmployeeName},#{assignEmployeeMobile},#{bindCompanyName},#{bindCompanyTaxid},#{bindPerson},#{bindTime},#{originCode},#{status})
     </insert>
 
     <insert id="insertBatch" useGeneratedKeys="true" parameterType="java.util.List">
         INSERT INTO
-        jskp_kpcode_assign_detail(main_id,pre_assign_code,bind_company_name,bind_company_taxid,bind_person,bind_time,origin_code,status)
+        jskp_kpcode_assign_detail(main_id,pre_assign_code,assign_employee_id,assign_employee_name,assign_employee_mobile,bind_company_name,bind_company_taxid,bind_person,bind_time,origin_code,status)
         VALUES
         <foreach collection="list" item="KPCodeDetail" index="index" separator=",">
-            (#{KPCodeDetail.mainId},#{KPCodeDetail.preAssignCode},#{KPCodeDetail.bindCompanyName},#{KPCodeDetail.bindCompanyTaxid},#{KPCodeDetail.bindPerson},#{KPCodeDetail.bindTime},#{KPCodeDetail.originCode},#{KPCodeDetail.status})
+            (#{KPCodeDetail.mainId},#{KPCodeDetail.preAssignCode},#{KPCodeDetail.assignEmployeeId},#{KPCodeDetail.assignEmployeeName},#{KPCodeDetail.assignEmployeeMobile},#{KPCodeDetail.bindCompanyName},#{KPCodeDetail.bindCompanyTaxid},#{KPCodeDetail.bindPerson},#{KPCodeDetail.bindTime},#{KPCodeDetail.originCode},#{KPCodeDetail.status})
         </foreach>
     </insert>
 
@@ -42,6 +42,9 @@
         <set>
             <if test="mainId != null">main_id=#{mainId},</if>
             <if test="preAssignCode != null">pre_assign_code=#{preAssignCode},</if>
+            <if test="assignEmployeeId != null">assign_employee_id=#{assignEmployeeId},</if>
+            <if test="assignEmployeeName != null">assign_employee_name=#{assignEmployeeName},</if>
+            <if test="assignEmployeeMobile != null">assign_employee_mobile=#{assignEmployeeMobile},</if>
             <if test="bindCompanyName != null">bind_company_name=#{bindCompanyName},</if>
             <if test="bindCompanyTaxid != null">bind_company_taxid=#{bindCompanyTaxid},</if>
             <if test="bindPerson != null">bind_person=#{bindPerson},</if>

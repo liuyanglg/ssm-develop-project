@@ -5,7 +5,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:spring/spring.xml"})
+@ContextConfiguration(locations = {"classpath*:test-cmp-spring.xml"})
 public class BaseTest {
     String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZSDIHRYBGPK";
     String numbers = "98234567896572983975";

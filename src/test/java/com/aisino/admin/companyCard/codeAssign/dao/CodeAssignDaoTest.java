@@ -28,4 +28,16 @@ public class CodeAssignDaoTest extends BaseTest{
         }
     }
 
+    @Test
+    public void testRegex()throws Exception{
+        int size = 0;
+        String url = "/dataAnalysis-web/company/phrase?text=%s&size=%d";
+        url = url.replaceFirst("%s", "浙江");
+        if (size == 0) {
+            size = 5;
+        }
+        url = url.replaceFirst("%", size + "");
+        System.out.println(url);
+    }
+
 }

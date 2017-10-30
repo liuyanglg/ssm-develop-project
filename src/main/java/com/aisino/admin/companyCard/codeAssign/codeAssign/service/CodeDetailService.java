@@ -1,13 +1,13 @@
-package com.aisino.admin.companyCard.codeAssign.dao;
+package com.aisino.admin.companyCard.codeAssign.codeAssign.service;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPCodeDetailDO;
 
 import java.util.List;
 
-public interface CodeDetailDao {
+public interface CodeDetailService {
     KPCodeDetailDO get(Integer id);
 
-    int insert(KPCodeDetailDO kpCodeDetailDO);
+    void insert(KPCodeDetailDO kpCodeDetailDO);
 
 
     void update(KPCodeDetailDO kpCodeDetailDO);
@@ -16,5 +16,4 @@ public interface CodeDetailDao {
 
     void insertBatch(List<KPCodeDetailDO> kpCodeDetailDOList);
 
-//    void deleteBatch(int[] ids);
 }

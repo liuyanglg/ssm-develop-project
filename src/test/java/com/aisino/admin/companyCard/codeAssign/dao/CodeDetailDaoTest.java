@@ -52,7 +52,9 @@ public class CodeDetailDaoTest extends BaseTest {
             kpCodeDetailDO.setStatus(status[i % 3]);
 
             i++;
-            codeDetailDao.insert(kpCodeDetailDO);
+            int id=codeDetailDao.insert(kpCodeDetailDO);
+            System.out.println("detailId: "+kpCodeDetailDO.getDetailId());
+            System.out.println("insertId="+id);
 
         }
     }
