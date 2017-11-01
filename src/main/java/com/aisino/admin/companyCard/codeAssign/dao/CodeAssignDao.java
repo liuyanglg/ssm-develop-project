@@ -1,4 +1,4 @@
-package com.aisino.admin.companyCard.codeAssign.codeAssign.dao;
+package com.aisino.admin.companyCard.codeAssign.dao;
 
 import com.aisino.admin.companyCard.codeAssign.bean.KPAssignCodeVO;
 import com.aisino.admin.global.paging.Page;

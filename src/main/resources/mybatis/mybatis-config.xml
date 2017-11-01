@@ -8,13 +8,11 @@
     </settings>
     <typeAliases>
         <typeAlias type="com.aisino.admin.global.paging.Page" alias="Page"/>
-        <typeAlias type="com.aisino.admin.companyCard.codeAssign.bean.KPCodeMainDO" alias="KPCodeMainDO"/>
-        <typeAlias type="com.aisino.admin.companyCard.codeAssign.bean.KPCodeDetailDO" alias="KPCodeDetailDO"/>
-        <typeAlias type="com.aisino.admin.companyCard.codeAssign.bean.KPAssignCodeVO" alias="KPAssignCodeVO"/>
+        <package name="com.aisino.admin.companyCard.codeAssign.bean"/>
     </typeAliases>
     <mappers>
-        <mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeAssignMapper.xml"/>
-        <mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeDetailMapper.xml"/>
-        <mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeMainMapper.xml"/>
+        <!--<mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeAssignMapper.xml"/>-->
+        <!--<mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeDetailMapper.xml"/>-->
+        <!--<mapper resource="com/aisino/admin/companyCard/codeAssign/mapper/KPCodeMainMapper.xml"/>-->
     </mappers>
 </configuration>

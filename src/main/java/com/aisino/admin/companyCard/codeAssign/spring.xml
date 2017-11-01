@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+    <bean id="platformDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+          destroy-method="close">
+        <!-- 基本属性 url、user、password -->
+        <property name="driverClassName">
+            <value>${platform.jdbc.driver}</value>
+        </property>
+        <property name="url">
+            <value>${platform.jdbc.url}</value>
+        </property>
+        <property name="username">
+            <value>${platform.jdbc.username}</value>
+        </property>
+        <property name="password">
+            <value>${platform.jdbc.password}</value>
+        </property>
+        <property name="maxActive">
+            <value>${platform.maxActive}</value>
+        </property>
+        <property name="initialSize">
+            <value>${platform.initialSize}</value>
+        </property>
+        <property name="maxWait">
+            <value>${platform.maxWait}</value>
+        </property>
+        <property name="minIdle">
+            <value>${platform.minIdle}</value>
+        </property>
+        <property name="removeAbandoned">
+            <value>true</value>
+        </property>
+        <property name="removeAbandonedTimeout">
+            <value>180</value>
+        </property>
+        <property name="connectionProperties">
+            <value>clientEncoding=UTF-8</value>
+        </property>
+    </bean>
+
+    <bean id="platformSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="platformDataSource"/>
+        <!--扫描mapper-->
+        <property name="mapperLocations" value="classpath*:com/aisino/admin/companyCard/codeAssign/mapper/*.xml"></property>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+    </bean>
+
+    <!-- 扫面 mybatis配置dao-->
+    <bean id="codeAssignDaoScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.aisino.admin.companyCard.codeAssign.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="platformSessionFactory"></property>
+    </bean>
+</beans>

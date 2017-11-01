@@ -1,4 +1,4 @@
-package com.aisino.admin.companyCard.codeAssign.codeAssign.bean;
+package com.aisino.admin.companyCard.codeAssign.bean;
 
 import java.util.Date;
 

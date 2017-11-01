@@ -58,9 +58,6 @@ public class CodeMainDaoTest extends BaseTest{
             kpCodeMainDO.setAssignCompanyName("服务商"+code);
             kpCodeMainDO.setAssignCompanyTaxid("201708041123" + code);
             kpCodeMainDO.setAssignAmount(10);
-            kpCodeMainDO.setAssignEmployeeId("employee" + code);
-            kpCodeMainDO.setAssignEmployeeName("员工" + code);
-            kpCodeMainDO.setAssignEmployeeMobile("15988881234");
             kpCodeMainDO.setCreatePerson(person[i % 5]);
             kpCodeMainDO.setCreateTime(new Date());
             kpCodeMainDO.setModifyPerson(person[i % 5]);
@@ -88,9 +85,6 @@ public class CodeMainDaoTest extends BaseTest{
             kpCodeMainDO.setAssignCompanyName("服务商"+code);
             kpCodeMainDO.setAssignCompanyTaxid("201708041123" + code);
             kpCodeMainDO.setAssignAmount(10);
-            kpCodeMainDO.setAssignEmployeeId("employee" + code);
-            kpCodeMainDO.setAssignEmployeeName("员工" + code);
-            kpCodeMainDO.setAssignEmployeeMobile("15988881234");
             kpCodeMainDO.setCreatePerson(person[i % 5]);
             kpCodeMainDO.setCreateTime(new Date());
             kpCodeMainDO.setModifyPerson(person[i % 5]);
